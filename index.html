@@ -1,0 +1,230 @@
+
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulário HTML5 Completo (sem formatação)</title>
+</head>
+<body>
+  <h1>Formulário HTML5 Completo (sem formatação)</h1>
+
+  <!-- Formulário principal -->
+  <form id="formCompleto" action="#" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="on" target="_self">
+
+    <!-- Campo oculto -->
+    <input type="hidden" name="session_id" value="abcdef123456" />
+
+    <!-- Agrupamento de campos - informacoes pessoais -->
+    <fieldset>
+      <legend>Informações pessoais</legend>
+
+      <label for="nome">Nome completo</label>
+      <input id="nome" name="nome" type="text" placeholder="Ex.: Maria Silva" required maxlength="100" />
+
+      <label for="apelido">Apelido (search)</label>
+      <input id="apelido" name="apelido" type="search" placeholder="Pesquisar apelido" />
+
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" pattern="\([0-9]{2}\)\s?[0-9]{4,5}-?[0-9]{4}" />
+
+      <label for="website">Website (url)</label>
+      <input id="website" name="website" type="url" placeholder="https://exemplo.com" />
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" placeholder="usuario@provedor.com" required />
+
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" minlength="8" required />
+
+    </fieldset>
+
+    <!-- Campos numéricos e controles -->
+    <fieldset>
+      <legend>Controles numéricos e seleção</legend>
+
+      <label for="idade">Idade (number)</label>
+      <input id="idade" name="idade" type="number" min="0" max="120" step="1" value="30" />
+
+      <label for="satisfacao">Satisfação (range)</label>
+      <input id="satisfacao" name="satisfacao" type="range" min="0" max="10" step="1" value="5" />
+
+      <label for="cor">Cor favorita (color)</label>
+      <input id="cor" name="cor" type="color" value="#ff0000" />
+
+      <label for="data_nascimento">Data de nascimento (date)</label>
+      <input id="data_nascimento" name="data_nascimento" type="date" />
+
+      <label for="mes_preferencia">Mês preferido (month)</label>
+      <input id="mes_preferencia" name="mes_preferencia" type="month" />
+
+      <label for="semana_favorita">Semana (week)</label>
+      <input id="semana_favorita" name="semana_favorita" type="week" />
+
+      <label for="hora_favorita">Hora favorita (time)</label>
+      <input id="hora_favorita" name="hora_favorita" type="time" />
+
+      <label for="data_hora_local">Data e hora local (datetime-local)</label>
+      <input id="data_hora_local" name="data_hora_local" type="datetime-local" />
+
+    </fieldset>
+
+    <!-- Radio e checkbox -->
+    <fieldset>
+      <legend>Preferências</legend>
+
+      <p>Gênero (radio)</p>
+      <label><input type="radio" name="genero" value="feminino" /> Feminino</label>
+      <label><input type="radio" name="genero" value="masculino" /> Masculino</label>
+      <label><input type="radio" name="genero" value="outro" /> Outro</label>
+
+      <p>Interesses (checkbox)</p>
+      <label><input type="checkbox" name="interesses" value="tecnologia" /> Tecnologia</label>
+      <label><input type="checkbox" name="interesses" value="arte" /> Arte</label>
+      <label><input type="checkbox" name="interesses" value="esportes" /> Esportes</label>
+
+    </fieldset>
+
+    <!-- Arquivos -->
+    <fieldset>
+      <legend>Envio de arquivos</legend>
+
+      <label for="avatar">Avatar (file)</label>
+      <input id="avatar" name="avatar" type="file" accept="image/*" />
+
+      <label for="arquivos">Múltiplos arquivos</label>
+      <input id="arquivos" name="arquivos[]" type="file" multiple accept="image/*,application/pdf" />
+
+    </fieldset>
+
+    <!-- Área de texto e seleção -->
+    <fieldset>
+      <legend>Texto e seleção</legend>
+
+      <label for="bio">Biografia (textarea)</label>
+      <textarea id="bio" name="bio" rows="5" maxlength="1000" placeholder="Escreva sobre você..."></textarea>
+
+      <label for="pais">País (select)</label>
+      <select id="pais" name="pais" required>
+        <option value="">-- selecione --</option>
+        <optgroup label="América do Sul">
+          <option value="br">Brasil</option>
+          <option value="ar">Argentina</option>
+        </optgroup>
+        <optgroup label="Europa">
+          <option value="pt">Portugal</option>
+          <option value="es">Espanha</option>
+        </optgroup>
+      </select>
+
+      <label for="linguas">Línguas faladas (select multiple)</label>
+      <select id="linguas" name="linguas[]" multiple size="4">
+        <option value="pt">Português</option>
+        <option value="en">Inglês</option>
+        <option value="es">Espanhol</option>
+        <option value="fr">Francês</option>
+      </select>
+
+      <label for="opcao_datalist">Escolha com sugestão (datalist)</label>
+      <input id="opcao_datalist" name="opcao_datalist" list="sugestoes" placeholder="Comece a digitar..." />
+      <datalist id="sugestoes">
+        <option value="Opção A"></option>
+        <option value="Opção B"></option>
+        <option value="Opção C"></option>
+      </datalist>
+
+    </fieldset>
+
+    <!-- Controles de submissão e atributos do button relacionados ao form -->
+    <fieldset>
+      <legend>Ações do formulário</legend>
+
+      <button type="submit">Enviar</button>
+      <button type="reset">Redefinir</button>
+
+      <!-- botão com override de ação/form attributes -->
+      <button type="submit" formaction="/submit-diferente" formmethod="post" formenctype="application/x-www-form-urlencoded" formnovalidate>Enviar (override)</button>
+
+      <input type="submit" value="Enviar (input)" />
+
+      <!-- código antes -->
+       <!-- <input type="image" src="#" alt="Enviar imagem" />-->
+        <!-- Linha de código corrigido -->
+    <input type="image" src="https://via.placeholder.com/100x40?text=Enviar" alt="Enviar imagem" />
+
+      <button type="button" onclick="alert('Botão comum (sem submissão)')">Botão comum</button>
+
+    </fieldset>
+
+    <!-- Elementos de saída e visualização -->
+    <fieldset>
+      <legend>Saída / indicadores</legend>
+
+      <label for="progresso">Progresso (progress)</label>
+      <progress id="progresso" value="30" max="100">30%</progress>
+
+      <label for="nivel">Nível (meter)</label>
+      <meter id="nivel" value="0.6">60%</meter>
+
+      <p>Resultado calculado (output)</p>
+      <label for="valorA">Valor A</label>
+      <input id="valorA" name="valorA" type="number" value="0" oninput="atualizarSaida()" />
+
+      <label for="valorB">Valor B</label>
+      <input id="valorB" name="valorB" type="number" value="0" oninput="atualizarSaida()" />
+
+      <output id="saida" name="saida">0</output>
+
+    </fieldset>
+
+    <!-- Elementos interativos adicionais HTML5 -->
+    <fieldset>
+      <legend>Elementos adicionais</legend>
+
+      <details>
+        <summary>Mais informações</summary>
+        <p>Este bloco <code>details/summary</code> pode conter informações opcionais.</p>
+      </details>
+
+      <label for="dialog_trigger">Exibir diálogo (dialog)</label>
+      <button id="dialog_trigger" type="button" onclick="abrirDialog()">Abrir diálogo</button>
+
+      <dialog id="meuDialog">
+        <p>Este é um diálogo nativo (&lt;dialog&gt;).</p>
+        <menu>
+          <button type="button" onclick="document.getElementById('meuDialog').close()">Fechar</button>
+        </menu>
+      </dialog>
+
+      <template id="modelo">
+        <p>Exemplo de conteúdo no template (não visível até clonado).</p>
+      </template>
+
+    </fieldset>
+
+    <!-- Consentimento e outros controles -->
+    <fieldset>
+      <legend>Consentimento</legend>
+      <label><input type="checkbox" name="aceita_termos" required /> Aceito os termos e condições</label>
+    </fieldset>
+
+  </form>
+
+  <script>
+    function atualizarSaida() {
+      var a = Number(document.getElementById('valorA').value) || 0;
+      var b = Number(document.getElementById('valorB').value) || 0;
+      var soma = a + b;
+      document.getElementById('saida').value = soma;
+    }
+
+    function abrirDialog(){
+      var d = document.getElementById('meuDialog');
+      if (typeof d.showModal === 'function') d.showModal();
+      else alert('Seu navegador não suporta <dialog> nativo.');
+    }
+  </script>
+
+</body>
+</html>
